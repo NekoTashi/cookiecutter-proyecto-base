@@ -3,7 +3,7 @@
 
 project_name: {{ cookiecutter.project_name }}
 repo_name: {{ cookiecutter.repo_name }}
-remote_user: {{ cookiecutter.remote_user }}
+deploy_user: {{ cookiecutter.deploy_user }}
 
 db_user: {{ cookiecutter.project_name }}
 db_name: {{ cookiecutter.project_name }}
