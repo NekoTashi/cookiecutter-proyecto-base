@@ -1,0 +1,11 @@
+# Ansible
+*.retry
+
+# Fabric
+ssh-keys/
+
+# Python
+*.pyc
+
+# OS X
+.DS_Store
