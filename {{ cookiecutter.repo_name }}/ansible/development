@@ -1,0 +1,8 @@
+[all:vars]
+env=development
+
+[webservers]
+{{ cookiecutter.ip_server }}
+
+[dbservers]
+{{ cookiecutter.ip_server }}

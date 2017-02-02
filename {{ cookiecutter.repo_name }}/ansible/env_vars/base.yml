@@ -1,0 +1,11 @@
+---
+
+
+project_name: {{ cookiecutter.project_name }}
+repo_name: {{ cookiecutter.repo_name }}
+remote_user: {{ cookiecutter.remote_user }}
+
+db_user: {{ cookiecutter.project_name }}
+db_name: {{ cookiecutter.project_name }}
+db_password: {{ cookiecutter.db_password }}
+db_version: {{ cookiecutter.postgres_version }}

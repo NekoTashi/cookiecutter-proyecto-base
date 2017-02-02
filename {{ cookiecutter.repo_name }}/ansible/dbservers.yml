@@ -1,0 +1,15 @@
+---
+
+
+- name: Suministrando el servidor db del proyecto {{ project_name }}
+  hosts: dbservers
+  become: yes
+  become_user: root
+  remote_user: "{{ deploy_user }}"
+  vars_files:
+    - env_vars/base.yml
+    - env_vars/{{ env }}.yml
+
+  roles:
+    - base
+    - postgres

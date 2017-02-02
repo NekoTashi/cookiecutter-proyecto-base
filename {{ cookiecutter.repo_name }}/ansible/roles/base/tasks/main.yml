@@ -1,0 +1,42 @@
+---
+
+
+- name: Asegurar que bash, openssl y libssl estén en su última versión
+  apt: name={{ item }}
+       update_cache=yes
+       state=latest
+  with_items:
+    - bash
+    - openssl
+    - libssl-dev
+    - libssl-doc
+
+- name: Asegurar que APT funcione por medio de HTTPS
+  apt: name={{ item }}
+       state=present
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+
+- name: Instalar herramientas base
+  apt: name={{ item }}
+       update_cache=yes
+       force=yes
+       state=installed
+  with_items:
+    - build-essential
+    - acl
+    - ntp
+    - htop
+    - git
+    - libpq-dev
+    - python-dev
+    - python-pip
+    - python-pycurl
+    - python-psycopg2
+    - ipython
+    - supervisor
+
+- name: Actualizar pip
+  pip: name=pip
+       state=latest

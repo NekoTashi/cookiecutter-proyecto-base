@@ -1,0 +1,8 @@
+---
+
+
+- name: Instalar Certbot usando el release por defecto {{ ansible_distribution_release }}-backports
+  apt: name=certbot
+       update_cache=yes
+       state=present
+       default_release={{ ansible_distribution_release }}-backports

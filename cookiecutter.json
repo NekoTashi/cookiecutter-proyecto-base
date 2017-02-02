@@ -1,0 +1,10 @@
+{
+    "project_name": "project name",
+    "repo_name": "{{ cookiecutter.project_name | replace(' ', '_') | lower }}",
+    "provider_user": "root",
+    "provider_password": "root",
+    "ip_server": "127.0.0.1",
+    "deploy_user": "deploy",
+    "db_password": "password",
+    "postgres_version": ["9.6", "9.5"]
+}

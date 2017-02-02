@@ -1,0 +1,54 @@
+---
+
+- name: Añadir PostgreSQL GPG key al repositorio APT
+  apt_key: url=https://www.postgresql.org/media/keys/ACCC4CF8.asc
+           state=present
+
+- name: Añadir PostgreSQL al repositorio APT
+  apt_repository: repo='deb http://apt.postgresql.org/pub/repos/apt/ {{ ansible_distribution_release }}-pgdg main'
+                  update_cache=yes
+                  state=present
+
+- name: Instalar PostgreSQL
+  apt: name={{ item }}
+       update_cache=yes
+       state=installed
+  with_items:
+    - postgresql-{{ db_version }}
+    - postgresql-contrib-{{ db_version }}
+    - postgresql-{{ db_version }}-postgis-2.3
+    - postgresql-{{ db_version }}-postgis-scripts
+  notify: Iniciar Postgresql
+
+- name: Asegurar la creación de la base de datos
+  become_user: postgres
+  postgresql_db: name={{ db_name }}
+                 encoding='UTF-8'
+                 lc_collate='es_CL.UTF-8'
+                 lc_ctype='es_CL.UTF-8'
+                 template='template0'
+                 state=present
+
+- name: Asegurar que el usuario tenga acceso a la base de datos
+  become_user: postgres
+  postgresql_user: db={{ db_name }}
+                   name={{ db_user }}
+                   password={{ db_password }}
+                   priv=ALL
+                   state=present
+
+- name: Asegurar que el usuario no tenga privilegios innecesarios
+  become_user: postgres
+  postgresql_user: name={{ db_user }}
+                   role_attr_flags=NOSUPERUSER,NOCREATEDB
+                   state=present
+
+- name: Añadir extensión postgis
+  become_user: postgres
+  postgresql_ext: name=postgis
+                  db={{ db_name }}
+
+- name: Añadir extensión hstore
+  become_user: postgres
+  postgresql_ext: name=hstore
+                  db={{ db_name }}
