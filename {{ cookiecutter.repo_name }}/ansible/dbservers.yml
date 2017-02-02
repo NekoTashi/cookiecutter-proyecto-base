@@ -1,3 +1,4 @@
+{% raw -%}
 ---
 
 
@@ -13,3 +14,5 @@
   roles:
     - base
     - postgres
+
+{%- endraw %}

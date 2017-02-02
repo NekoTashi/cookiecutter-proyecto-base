@@ -1,3 +1,4 @@
+{% raw -%}
 ---
 
 
@@ -16,3 +17,5 @@
   service: name=nginx
            state=started
            enabled=yes
+
+{%- endraw %}

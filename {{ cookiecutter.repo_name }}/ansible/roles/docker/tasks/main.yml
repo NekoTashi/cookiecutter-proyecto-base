@@ -1,3 +1,4 @@
+{% raw -%}
 ---
 
 
@@ -37,3 +38,5 @@
 - name: Instalar docker-compose
   pip: name=docker-compose
        state=present
+
+{%- endraw %}

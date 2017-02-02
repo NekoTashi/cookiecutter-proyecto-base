@@ -1,3 +1,4 @@
+{% raw -%}
 [all:vars]
 env=development
 
@@ -6,3 +7,5 @@ env=development
 
 [dbservers]
 {{ cookiecutter.ip_server }}
+
+{%- endraw %}

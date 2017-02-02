@@ -1,3 +1,4 @@
+{% raw -%}
 ---
 
 
@@ -40,3 +41,5 @@
 - name: Actualizar pip
   pip: name=pip
        state=latest
+
+{%- endraw %}

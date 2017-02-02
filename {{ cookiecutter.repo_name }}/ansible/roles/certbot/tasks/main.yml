@@ -1,3 +1,4 @@
+{% raw -%}
 ---
 
 
@@ -6,3 +7,5 @@
        update_cache=yes
        state=present
        default_release={{ ansible_distribution_release }}-backports
+
+{%- endraw %}

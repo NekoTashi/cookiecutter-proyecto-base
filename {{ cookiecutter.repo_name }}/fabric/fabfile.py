@@ -1,3 +1,4 @@
+{% raw -%}
 # -*- coding: utf-8 -*-
 """
 Suministra el estado inicial de un servidor.
@@ -135,3 +136,5 @@ def deactivate_ssh_password():
         use_sudo=True)
 
     sudo('service sshd reload')
+
+{%- endraw %}

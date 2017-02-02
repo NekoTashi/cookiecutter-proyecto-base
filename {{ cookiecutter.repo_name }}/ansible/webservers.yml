@@ -1,3 +1,4 @@
+{% raw -%}
 ---
 
 
@@ -15,3 +16,5 @@
     - docker
     - nginx
     - certbot
+
+{%- endraw %}
