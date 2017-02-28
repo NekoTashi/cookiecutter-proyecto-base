@@ -20,7 +20,7 @@ $ pip install "cookiecutter>=1.4.0"
 Luego, aplicar:
 
 ```
-$ cookiecutter https://github.com/NekoTashi/template-suministro-proyecto-base.git
+$ cookiecutter https://github.com/NekoTashi/cookiecutter-proyecto-base
 ```
 
 
